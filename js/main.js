@@ -3,7 +3,6 @@
 
 var naics
 var naicsAPI = 'http://naics-api.herokuapp.com/v0/q?year=2012'
-var naicsFile = 'data/naics-2012.json'
 var naicsURL
 var naicsLocal,
     naicsRemote
@@ -11,11 +10,9 @@ var naicsItem
 
 $(document).ready(function() {
 
-    naicsURL = naicsAPI
-
     // load NAICS
     $.ajax({
-        url: naicsURL,
+        url: naicsAPI,
         async: false,
         dataType: 'json',
         success: function(data) {
