@@ -24,15 +24,15 @@ $(document).ready(function() {
     });
 
     // convert input to typeahead.js datums
-    for ( var i = 0; i < naics.items.length; i++ ) {
-        naics.items[i].tokens = naics.items[i].title.split(' ')
+    for ( var i = 0; i < naics.length; i++ ) {
+        naics[i].tokens = naics[i].title.split(' ')
     }
 
     // TYPEAHEAD.js
     $('#typebox').typeahead({
         name: 'naics',
 //        remote: naics.items,
-        local: naics.items,
+        local: naics,
         valueKey: 'title',
         limit: 10,
         template: '<p><small>{{code}}</small> <strong>{{title}}</strong></p>',
