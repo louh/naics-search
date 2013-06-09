@@ -2,7 +2,7 @@
 // NAICS-API search example
 
 var naics
-var naicsAPI = 'http://naics-api.herokuapp.com/v0/q?year=2012'
+var naicsAPI = 'http://naics-api.herokuapp.com/v0/q?year=2012&collapse=1'
 var naicsURL
 var naicsLocal,
     naicsRemote
