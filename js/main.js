@@ -3,6 +3,7 @@
 
 var naics
 var naicsAPI = 'http://naics-api.herokuapp.com/v0/q?year=2012&collapse=1'
+// var naicsAPI = 'localnaics.json'
 var naicsURL
 var naicsLocal,
     naicsRemote
@@ -20,59 +21,39 @@ $(document).ready(function() {
         }
     });
 
-    // convert input to typeahead.js datums
-    for ( var i = 0; i < naics.length; i++ ) {
-        naics[i].tokens = naics[i].title.split(' ')
+    // SELECT2
+
+    // format data
+    for (i = 0; i < naics.length; i++) {
+        naics[i].id = naics[i].code
     }
 
-    // TYPEAHEAD.js
-    $('#typebox').typeahead({
-        name: 'naics',
-//        remote: naics.items,
-        local: naics,
-        valueKey: 'title',
-        limit: 10,
-        template: '<p><small>{{code}}</small> <strong>{{title}}</strong></p>',
-        engine: Hogan
-    });
+    // format selection things
+    function formatSelection(item) { return item.title }
+    function formatResult(item) { return '<small>' + item.code + '</small> <strong>' + item.title + '</strong>' }
 
+    // select2 init
+    $('#naics-select').select2({
+        allowClear: true,
+        minimumInputLength: 1,
+        data: { results: naics, text: 'title' },
+        formatSelection: formatSelection,
+        formatResult: formatResult
+    }).select2('open')
+
+    $('#naics-select').on('select2-selecting', function (e) {
+        $('#naics-add').prop('disabled', false)
+    })
+    $('#naics-select').on('select2-removed', function (e) {
+        $('#naics-add').prop('disabled', true)
+    })
 
     // INTERACTIONS
 
-    // enable 'add' button after typeahead option is selected
-    $('#typebox').on('typeahead:selected', function (e) {
-        $('input[type=submit]').prop('disabled', false)
-    })
-
-
-    $('#typebox').keyup(function() {
-        if ($(this).val() == '') { //Check to see if there is any text entered
-            //If there is no text within the input ten disable the button
-            $('input[type=submit]').prop('disabled', true)
-        }
-    });
-
-
     // add a row
-    $('#naics-search .btn-primary').on('click', function (e) {
+    $('#naics-add').on('click', function (e) {
         e.preventDefault()
-
-        if ($('#typebox') != '') {
-            var row = $('<tr></tr>').appendTo('tbody')
-            // TO DO: Get NAICS code to display here.
-            row.html('<td class="span1"><button class="close pull-left">&times;</button></td><td class="span10"><span> <strong>' + $('#typebox').val() +'</strong> <small></small></span></td><td class="span1"><button class="btn btn-small">Primary</button></td>')            
-        }
-
-        // set instructions in the table below
-        if ($('#no-table').is(":visible")) {
-            $('#no-table').hide()
-            $('#yes-table').show()
-        }
-
-        // Reset form
-        $('input[type=submit]').prop('disabled', true)
-        $('#typebox').typeahead('setQuery', '')
-        $('#typebox').focus()
+        addRow()
     })
 
     // delete a row
@@ -104,3 +85,26 @@ $(document).ready(function() {
     })
 
 })
+
+function addRow () {
+    if ($('#naics-select').select2('val') != '') {
+        var row = $('<tr></tr>').appendTo('tbody')
+
+        var title = $('#naics-select').select2('data').title
+        var code = $('#naics-select').select2('val')
+
+        row.html('<td class="span1"><button class="close pull-left">&times;</button></td><td class="span10"><span> <i class="icon-eye-open"></i> <strong>' + title + '</strong> <small>' + code +'</small></span></td><td class="span1"><button class="btn btn-small">Primary</button></td>')            
+    }
+
+    // set instructions in the table below
+    if ($('#no-table').is(":visible")) {
+        $('#no-table').hide()
+        $('#yes-table').show()
+    }
+
+    // Reset form
+    $('#naics-add').prop('disabled', true)
+    $('#naics-select').select2('val', '').select2('open')
+}
+
+
