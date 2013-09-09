@@ -1,45 +1,78 @@
 /* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+	 Author's custom styles
+	 ========================================================================== */
+
+body {
+	padding-top: 70px;
+	padding-bottom: 40px;
+}
+
+.navbar-brand {
+	max-width: none;
+	color: white;
+}
+
+.navbar-nav > li > a {
+	color: white
+}
+.navbar-nav > li > a:hover {
+	color: #cfe4f9;
+	cursor: hand;
+}
+
+.caret {
+	color: white !important;
+	border-top-color: white !important;
+	border-bottom-color: white !important;
+}
+
+.jumbotron {
+	padding: 30px 60px;
+	
+}
+
+
+
+#naics-nav {
+	background-color: #195ea3;
+	color: white;
+}
 
 #naics-search {
 
 }
 
-.hero-unit {
-  padding: 30px 60px;
-}
 
 small {
-  color: #777;
+	color: #777;
 }
 
 #naics-select {
 }
 
 #naics-add {
-  margin-top: 10px;
+	margin-top: 10px;
 }
 
 #naics-table span {
-  line-height: 25px;
-  height: 25px;
+	line-height: 25px;
+	height: 25px;
 }
 
 #naics-table small {
-  margin-left: 12px;
+	margin-left: 12px;
 }
 
 #naics-table i {
-  cursor: pointer;
-  margin-right: 10px;
+	cursor: pointer;
+	margin-right: 10px;
 }
 
 #yes-table, #no-table {
-  width: 80%;
-  margin: 0 auto;
+	width: 80%;
+	margin: 0 auto;
 }
 
 .note {
-  color: #999;
+	color: #999;
 }

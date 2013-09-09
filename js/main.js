@@ -1,9 +1,8 @@
-
 // NAICS-API search example
+'use strict'
 
 var naics
-var naicsAPI = 'http://naics-api.herokuapp.com/v0/q?year=2012&collapse=1'
-// var naicsAPI = 'localnaics.json'
+var naicsAPI = 'http://api.naics.us/v0/q?year=2012&collapse=1&titlesonly=1'
 var naicsURL
 var naicsLocal,
     naicsRemote
@@ -18,13 +17,16 @@ $(document).ready(function() {
         dataType: 'json',
         success: function(data) {
             naics = data;
+        },
+        failure: function(x) {
+            document.write('Error loading NAICS data')
         }
     });
 
     // SELECT2
 
     // format data
-    for (i = 0; i < naics.length; i++) {
+    for (var i = 0; i < naics.length; i++) {
         naics[i].id = naics[i].code
     }
 
