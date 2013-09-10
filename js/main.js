@@ -95,7 +95,7 @@ function addRow () {
         var title = $('#naics-select').select2('data').title
         var code = $('#naics-select').select2('val')
 
-        row.html('<td class="span1"><button class="close text-left">&times;</button></td><td class="span10 text-left"><span> <i class="icon-eye-open"></i> <strong>' + title + '</strong> <small>' + code +'</small></span></td><td class="span1"><button class="btn btn-small">Primary</button></td>')            
+        row.html('<td class="col-md-1"><button class="close text-left">&times;</button></td><td class="col-md-10 text-left"><span> <i class="icon-eye-open"></i> <strong>' + title + '</strong> <small>' + code +'</small></span></td><td class="col-md-1"><button class="btn btn-small">Primary</button></td>')            
     }
 
     // set instructions in the table below
