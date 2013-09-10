@@ -40,7 +40,8 @@ $(document).ready(function() {
         minimumInputLength: 1,
         data: { results: naics, text: 'title' },
         formatSelection: formatSelection,
-        formatResult: formatResult
+        formatResult: formatResult,
+        placeholder: 'Enter some keywords about your business',
     }).select2('open')
 
     $('#naics-select').on('select2-selecting', function (e) {
