@@ -1,121 +1,116 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+<!--[if lt IE 7]>      <html class='no-js lt-ie9 lt-ie8 lt-ie7'> <![endif]-->
+<!--[if IE 7]>         <html class='no-js lt-ie9 lt-ie8'> <![endif]-->
+<!--[if IE 8]>         <html class='no-js lt-ie9'> <![endif]-->
+<!--[if gt IE 8]><!--> <html class='no-js' lang='en'> <!--<![endif]-->
+	<head>
+		<meta charset='utf-8'>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+		<title></title>
+		<meta name='description' content=''>
+		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <style>
-            body {
-                padding-top: 60px;
-                padding-bottom: 40px;
-            }
-        </style>
-        <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
-        <link rel="stylesheet" href="css/main.css">
+		<link rel='stylesheet' href='css/bootstrap.min.css'>
+		<link rel='stylesheet' href='css/main.css'>
 
-        <link rel="stylesheet" href="css/select2.css">
+		<link rel='stylesheet' href='css/select2.css'>
 
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
+		<script src='js/vendor/modernizr-2.6.2-respond-1.1.0.min.js'></script>
+	</head>
+	<body>
+		<!--[if lt IE 7]>
+			<p class='chromeframe'>You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> or <a href='http://www.google.com/chromeframe/?redirect=true'>activate Google Chrome Frame</a> to improve your experience.</p>
+		<![endif]-->
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="#">NAICS API Search Example</a>
-                    <div class="nav-collapse collapse pull-right">
-                        <ul class="nav pull-right">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-header">NAICS Search Example</li>
-                                    <li><a href="https://github.com/louh/naics-search">View on Github</a></li>
-                                    <li class="divider"></li>
-                                    <li class="nav-header">NAICS-API</li>
-                                    <li><a href="https://github.com/louh/naics-api">View on Github</a></li>
-                                    <li><a href="http://docs.naicsapi.apiary.io/">View documentation on Apiary</a></li>
-                                    <li><a href="https://github.com/dobtco/NAICS/issues/1">Further discussion at DOBT</a></li>
-                                    <li class="divider"></li>
-                                    <li class="nav-header">NAICS</li>
-                                    <li><a href="http://www.bls.gov/bls/naics.htm">Bureau of Labor Statistics</a></li>
-                                    <li><a href="http://www.census.gov/eos/www/naics/">US Census</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div><!--/.nav-collapse -->
-                </div>
-            </div>
-        </div>
+		<div id='naics-nav' class='navbar navbar-fixed-top' role='navigation'>
+			<div class='container'>
 
-        <div class="container">
+				<button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='.bs-navbar-collapse'>
+					<span class='icon-bar'></span>
+					<span class='icon-bar'></span>
+					<span class='icon-bar'></span>
+				</button>
+				
+				<a class='navbar-brand' href='#'>NAICS API Search Example</a>
 
-            <div class="hero-unit">
-                <h1 class="text-center">NAICS-API Search Example</h1>
+				<div class='navbar-collapse bs-navbar-collapse collapse'>
+					<ul class='nav navbar-nav navbar-right'>
+						<li class='dropdown'>
+							<a class='dropdown-toggle' data-toggle='dropdown' href='#'>About <span class='caret'></span></a>
 
-                <br>
+							<ul class='dropdown-menu'>
 
-                <p class="lead">Write in some words to describe your business and click "Add." Include as many business types as necessary to fully describe your business. This will help determine what licenses you will need and whether you are in the correct planning zone for your business. <strong>Please be thorough.</strong> Your entries will be reviewed by staff, and inaccurate responses may lead to extra costs and longer delays in processing your application.</p>
+								<li class='dropdown-header'>NAICS Search Example</li>
+								<li><a href='https://github.com/louh/naics-search' target='_blank'>View on Github</a></li>
 
-                <p class="text-center"><small><strong>Note:</strong> This form searches 2012 NAICS codes.</small></p>
+								<li class='divider'></li>
 
-                <div class="row text-center">
-                    <span class="span7 offset2">
-                        <form id="naics-form">
-                            <input type="hidden" id="naics-select" class="span7 text-left" data-placeholder="Enter some keywords about your business">
-                            <br>
-                            <input type="submit" id="naics-add" class="btn btn-primary" value="Add" disabled>
-                        </form>
-                    </span>
-                </div>
+								<li class='dropdown-header'>NAICS-API</li>
+								<li><a href='https://github.com/louh/naics-api' target='_blank'>View on Github</a></li>
+								<li><a href='http://docs.naicsapi.apiary.io/' target='_blank'>View documentation on Apiary</a></li>
 
-            </div>
+								<li class='divider'></li>
 
-            <div class="row text-center">
-                <span class="span12">
-                    <h3>Your Business Categories</h3>
+								<li class='dropdown-header'>NAICS</li>
+								<li><a href='http://www.bls.gov/bls/naics.htm' target='_blank'>Bureau of Labor Statistics</a></li>
+								<li><a href='http://www.census.gov/eos/www/naics/' target='_blank'>US Census</a></li>
+							</ul>
 
-                    <table id="naics-table" class="table table-hover">
-                        <tbody>
-                        </tbody>
-                    </table>
+						</li>
+					</ul>
+				</div><!--/.nav-collapse -->
 
-                    <p id="no-table" class="note" style="display: visible"><small>Nothing here yet!</small></p>
+			</div>
+		</div>
 
-                    <p id="yes-table" class="note" style="display: none"><small>Click the <span class="label">Primary</span> button to mark a NAICS code as your primary type of business. There is no next step, this is just for demo purposes!</small></p>
+		<div class='container'>
 
-                </span>
-            </div>
+			<div class='jumbotron'>
+				<h1 class='text-center'>NAICS-API Search Example</h1>
 
-            <hr>
+				<p class='lead'>Type in some keywords to describe your business and click 'Add.' You can include as many business types as necessary to fully describe your business. This is a demonstration of a NAICS search tool that could assist business owners in categorizing their businesses.</p>
 
-            <footer>
-                <p>&copy; 2013 <a href="http://codeforamerica.org/">Code for America</a> and <a href="https://github.com/louh/">Lou Huang</a>.</p>
-            </footer>
+				<p class='text-center'><small><strong>Note:</strong> This form searches 2012 NAICS codes.</small></p>
 
-        </div> <!-- /container -->
+				<div class='row'>
+					<div class='col-md-8 col-md-offset-2 text-center'>
+						<form id='naics-form'>
+							<input type='hidden' id='naics-select' class='text-left' data-placeholder='Enter some keywords, e.g. rice farming'><span id='loading-msg'>Loading NAICS codes...</span>
+							<br>
+							<input type='submit' id='naics-add' class='btn btn-primary' value='Add' required>
+						</form>
+					</div>
+				</div>
 
-        <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+			</div>
 
-        <script src="js/vendor/bootstrap.min.js"></script>
+			<div class='row text-center'>
+				<span class='col-md-12'>
+					<h3>Your Business Categories</h3>
 
-        <script src="js/vendor/select2.min.js"></script>
+					<table id='naics-table' class='table table-hover'>
+						<tbody>
+						</tbody>
+					</table>
 
-        <script src="js/main.js"></script>
-    </body>
+					<p id='no-table' class='note' style='display: visible'><small>Nothing here yet!</small></p>
+
+					<p id='yes-table' class='note' style='display: none'><small>Click the <span class='label label-default'>Primary</span> button to mark a NAICS code as your primary type of business. There is no next step, this is just for demo purposes!</small></p>
+
+				</span>
+			</div>
+
+			<hr>
+
+			<footer>
+				<p>&copy; 2013 <a href='http://codeforamerica.org/'>Code for America</a> and <a href='https://github.com/louh/'>Lou Huang</a>.</p>
+			</footer>
+
+		</div> <!-- /container -->
+		
+		<script src='http://code.jquery.com/jquery.js'></script>
+		<script src='js/vendor/bootstrap.min.js'></script>
+		<script src='js/vendor/select2.min.js'></script>
+		<script src='js/main.js'></script>
+	</body>
 </html>
