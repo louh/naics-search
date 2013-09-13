@@ -17,12 +17,32 @@ body {
 .navbar-nav > li > a {
 	color: white
 }
+.navbar-nav > li > a:hover {
+	background-color: rgba(0,0,0,0.25);
+	color: white;
+}
+
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+	background-color: rgba(255,255,255,0.15);
+}
+
+
+
+@media (max-width: 767px) {
+	.dropdown-menu > li > a {
+		color: white;
+	}
+	.dropdown-header {
+		color: #ccc;
+	}
+}
+
 
 .navbar-toggle {
 	border: 0px;
 }
 .navbar-toggle:hover {
-	background: rgba(0,0,0,0.25);
+	background-color: rgba(0,0,0,0.25);
 }
 
 .select2-container {
@@ -57,6 +77,9 @@ body {
 
 }
 
+h1 {
+	margin-bottom: 30px;
+}
 
 small {
 	color: #777;
@@ -69,6 +92,10 @@ small {
 	margin-top: 10px;
 }
 
+#naics-table {
+	border-bottom: 1px solid #ddd;
+}
+
 #naics-table span {
 	line-height: 25px;
 	height: 25px;
@@ -78,9 +105,9 @@ small {
 	margin-left: 12px;
 }
 
-#naics-table i {
+#naics-table .glyphicon {
 	cursor: pointer;
-	margin-right: 10px;
+	margin-right: 5px;
 }
 
 #yes-table, #no-table {
@@ -89,5 +116,10 @@ small {
 }
 
 .note {
+	color: #999;
+}
+
+#loading-msg {
+	font-size: 15px;
 	color: #999;
 }
